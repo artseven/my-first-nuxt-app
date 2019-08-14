@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <li><nuxt-link to="/users">Users</nuxt-link></li>
-    <li><nuxt-link to="/products">Products</nuxt-link></li>
+    <nuxt-link to="/users">Users</nuxt-link>
   </div>
 </template>
 
@@ -45,3 +44,17 @@ export default {
   padding-top: 15px;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      
+    }
+  },
+  methods: {
+
+  }
+
+}
+</script>
