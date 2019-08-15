@@ -14,7 +14,7 @@
 	</div>
 </template>
 
-<style scoped>
+<style>
 .single-post-page {
   padding: 30px;
   text-align: center;
