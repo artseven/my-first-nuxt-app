@@ -3,34 +3,15 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview 
-        id="1"
-        thumbnail="https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg"
-        title="Hello there!"
-        previewText="This is my first post!" 
-      />
-      <PostPreview 
-        id="2"
-        thumbnail="https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg"
-        title="Hello again!"
-        previewText="This is my second post!" 
-      />
-      <PostPreview 
-        id="3"
-        thumbnail="https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg"
-        title="Hi!"
-        previewText="This is my third post!" 
-      />
-    </section>
+    <PostList />
   </div>
 </template>
 
 <script>
-import PostPreview from '@/components/Posts/PostPreview'
+import PostList from '@/components/Posts/PostList'
 export default {
   components: {
-    PostPreview
+    PostList
   }
 }
 </script>
@@ -67,13 +48,11 @@ export default {
     font-size: 2rem;
   }
 }
+.posts-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-.featured-posts {
-  display: flex;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
+
 </style>
