@@ -34,6 +34,7 @@
 
 .post-title {
   margin: 0;
+  text-align: center;
 }
 
 .post-details {
@@ -55,6 +56,10 @@
 .post-detail {
   color: rgb(88, 88, 88);
   margin: 0 10px;
+}
+
+.post-feedback {
+	text-align: center;
 }
 
 .post-feedback a {

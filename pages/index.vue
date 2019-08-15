@@ -4,9 +4,24 @@
       <h1>Get the latest tech news!</h1>
     </section>
     <section class="featured-posts">
-      <PostPreview />
-      <PostPreview />
-      <PostPreview />
+      <PostPreview 
+        id="1"
+        thumbnail="https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg"
+        title="Hello there!"
+        previewText="This is my first post!" 
+      />
+      <PostPreview 
+        id="2"
+        thumbnail="https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg"
+        title="Hello again!"
+        previewText="This is my second post!" 
+      />
+      <PostPreview 
+        id="3"
+        thumbnail="https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg"
+        title="Hi!"
+        previewText="This is my third post!" 
+      />
     </section>
   </div>
 </template>
@@ -25,6 +40,7 @@ export default {
   height: 300px;
   position: relative;
   padding: 30px;
+  text-align: center;
   box-sizing: border-box;
   background-position: center;
   background-size: cover;
