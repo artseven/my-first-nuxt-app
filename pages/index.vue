@@ -13,24 +13,28 @@ export default {
   components: {
     PostList
   },
-  data() {
-    return {
-      loadedPosts: [
-        { 
-          id: "1",
-          title: "First post",
-          previewText: 'This is our first post!', 
-          thumbnail: 'https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg'
-        },
-        { 
-          id: "2",
-          title: "Second post",
-          previewText: 'This is our second post!', 
-          thumbnail: 'https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg'
-        },
-
-      ]
-    }
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: [
+          { 
+            id: "1",
+            title: "First post",
+            previewText: 'This is our first post!', 
+            thumbnail: 'https://static.techspot.com/images2/news/bigimage/2018/07/2018-07-10-image-35.jpg'
+          },
+          { 
+            id: "2",
+            title: "Second post",
+            previewText: 'This is our second post!', 
+            thumbnail: 'https://www.maketecheasier.com/assets/uploads/2019/01/intermediate-tech-feature.jpg'
+          },
+        ]
+      }) 
+    }, 1500);
+  },
+  created() {
+    
   }
 }
 </script>
