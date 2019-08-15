@@ -9,6 +9,22 @@ import PostList from '@/components/Posts/PostList'
 export default {
 	components: {
 		PostList
+	},
+	asyncData(context, callback) {
+		// console.log(context);
+		// setTimeout(() => {
+		// 	callback(null, {
+		// 		preloadedPosts: [
+		// 			{
+		// 				id: "5",
+		// 				title: 'Bearrusia',
+		// 				thumbnail: 'https://media.giphy.com/media/Zd11ZERqDyA6CA8vxO/giphy.gif',
+		// 				previewText: 'Tfw your bear is waiting at home'
+
+		// 			}
+		// 		]
+		// 	})
+		// }, 2000);
 	}
 }
 </script>
