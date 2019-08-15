@@ -42,6 +42,7 @@ export default {
   padding: 30px;
   text-align: center;
   box-sizing: border-box;
+  background-image: url('~assets/images/main-page-background.jpg');
   background-position: center;
   background-size: cover;
 }
