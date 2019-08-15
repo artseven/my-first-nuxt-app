@@ -11,6 +11,9 @@
 		<section class="post-feedback">
 			<p>Let me know what you think about the post, send a mail to <a href="mailto:feedback@feedback.com">feedback@feedback.com</a></p>
 		</section>
+    <div class="post-thumbnail"
+     :style="{backgroundImage: 'url('+ loadedPost.thumbnail + ')'}">
+    </div>
 	</div>
 </template>
 
