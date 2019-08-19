@@ -1,6 +1,6 @@
 <template>
 	<div class="posts-page">
-		<PostList :posts="preloadedPosts"/>
+		<PostList :posts="loadedPosts"/>
 	</div>
 </template>
 
@@ -10,31 +10,10 @@ export default {
 	components: {
 		PostList
 	},
-	asyncData(context) {
-		return new Promise((resolve, reject) => {
-			setTimeout(() => {
-				resolve({
-					preloadedPosts: [
-						{
-							id: "5",
-							title: 'Bearrusia',
-							thumbnail: 'https://media.giphy.com/media/Zd11ZERqDyA6CA8vxO/giphy.gif',
-							previewText: 'Tfw your bear is waiting at home'
-						}
-					]
-				});
-			}, 2000);
-		})
-		.then(data => {
-			return data;
-		})
-		.catch(e => {
-			context.error(new Error())
-		});
-		
-	},
-	created() {
-		this.$store.dispatch('setPosts', this.loadedPosts)
+	computed: {
+		loadedPosts() {
+			return this.$store.getters.loadedPosts
+		}
 	}
 }
 </script>
