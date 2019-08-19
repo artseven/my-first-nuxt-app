@@ -21,9 +21,9 @@ const createStore = () => {
 				.then(res => {
 					const postsArray = []
 					for (const key in res.data) {
-						postsArray.push({ ...res.data[key] })
+						postsArray.push({ ...res.data[key], id: key })
 					}
-					vuexContext.commit('setPosts')
+					vuexContext.commit('setPosts', postsArray)
 				})
 				.catch(e => context.error(e));
 		},
