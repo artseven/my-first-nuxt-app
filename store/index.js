@@ -1,6 +1,9 @@
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable indent */
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-tabs */
-import Vuex from 'vuex'
+import Vuex from 'vuex';
+import axios from 'axios';
 
 const createStore = () => {
   return new Vuex.Store({
@@ -13,27 +16,20 @@ const createStore = () => {
       }
     },
     actions: {
-      nuxtServerInit (vuexContext, context) {
-		  if (!process.client) {
-			  console.log(context.req.session)
-		  }
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            vuexContext.commit('setPosts', [
-              {
-                id: '5',
-                title: 'Bearrusia',
-                thumbnail: 'https://media.giphy.com/media/Zd11ZERqDyA6CA8vxO/giphy.gif',
-                previewText: 'Tfw your bear is waiting at home'
-              }
-            ])
-            resolve()
-		  }, 2000)
-        })
-	  	},
-      setPosts (vuexContext, posts) {
-        vuexContext.commit('setPosts', posts)
-      }
+      	nuxtServerInit (vuexContext, context) {
+			return axios.get('https://nuxt-blog-c63d2.firebaseio.com/posts.json')
+				.then(res => {
+					const postsArray = []
+					for (const key in res.data) {
+						postsArray.push({ ...res.data[key] })
+					}
+					vuexContext.commit('setPosts')
+				})
+				.catch(e => context.error(e));
+		},
+		setPosts (vuexContext, posts) {
+			vuexContext.commit('setPosts', posts)
+		}
     },
     getters: {
       loadedPosts (state) {
