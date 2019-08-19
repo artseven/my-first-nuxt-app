@@ -14,15 +14,18 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit (vuexContext, context) {
+		  if (!process.client) {
+			  console.log(context.req.session)
+		  }
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             vuexContext.commit('setPosts', [
-                {
-                  id: '5',
-                  title: 'Bearrusia',
-                  thumbnail: 'https://media.giphy.com/media/Zd11ZERqDyA6CA8vxO/giphy.gif',
-                  previewText: 'Tfw your bear is waiting at home'
-                }
+              {
+                id: '5',
+                title: 'Bearrusia',
+                thumbnail: 'https://media.giphy.com/media/Zd11ZERqDyA6CA8vxO/giphy.gif',
+                previewText: 'Tfw your bear is waiting at home'
+              }
             ])
             resolve()
 		  }, 2000)
