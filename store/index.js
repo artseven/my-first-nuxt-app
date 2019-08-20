@@ -32,7 +32,7 @@ const createStore = () => {
             }
             vuexContext.commit('setPosts', postsArray)
           })
-          .catch(e => context.error(e));
+          .catch(e => context.error(e))
 		},
 		setPosts (vuexContext, posts) {
 			vuexContext.commit('setPosts', posts)
