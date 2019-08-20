@@ -3,7 +3,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-tabs */
 import Vuex from 'vuex'
-import axios from 'axios'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -24,7 +23,8 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit (vuexContext, context) {
-			  return axios.get(process.env.baseUrl + '/posts.json')
+        return context.app.$axios
+          .$get('/posts.json')
           .then((res) => {
             const postsArray = []
             for (const key in res.data) {
@@ -42,14 +42,14 @@ const createStore = () => {
         ...post,
         updatedDate: new Date()
       }
-      return axios.post('https://nuxt-blog-c63d2.firebaseio.com/posts.json', createdPost)
+      return this.$axios.$post('https://nuxt-blog-c63d2.firebaseio.com/posts.json', createdPost)
 				.then((res) => {
           vuexContext.commit('addPost', { ...createdPost, id: res.data.name })
 				})
 				.catch(e => console.log(e))
     },
     editPost (vuexContext, editedPost) {
-      return axios.put('https://nuxt-blog-c63d2.firebaseio.com/posts/' +
+      return this.$axios.$put('https://nuxt-blog-c63d2.firebaseio.com/posts/' +
         editedPost.id +
         '.json', editedPost)
         .then(() => {
