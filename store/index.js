@@ -2,8 +2,8 @@
 /* eslint-disable indent */
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-tabs */
-import Vuex from 'vuex';
-import axios from 'axios';
+import Vuex from 'vuex'
+import axios from 'axios'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -24,7 +24,7 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit (vuexContext, context) {
-			  return axios.get('https://nuxt-blog-c63d2.firebaseio.com/posts.json')
+			  return axios.get(process.env.baseUrl + '/posts.json')
           .then((res) => {
             const postsArray = []
             for (const key in res.data) {
@@ -52,7 +52,7 @@ const createStore = () => {
       return axios.put('https://nuxt-blog-c63d2.firebaseio.com/posts/' +
         editedPost.id +
         '.json', editedPost)
-        .then(res => {
+        .then(() => {
           vuexContext.commit('editPost', editedPost)
         })
         .catch(e => console.log(e))
