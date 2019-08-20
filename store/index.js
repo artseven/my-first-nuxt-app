@@ -18,7 +18,7 @@ const createStore = () => {
         state.loadedPosts.push(post)
       },
       editPost (state, editedPost) {
-        const postIndex = state.loadedPosts.findIndex(post => post.id === editedPost.id);
+        const postIndex = state.loadedPosts.findIndex(post => post.id === editedPost.id)
         state.loadedPosts[postIndex] = editedPost
       }
     },
@@ -39,13 +39,12 @@ const createStore = () => {
     },
     addPost (vuexContext, post) {
       const createdPost = {
-        ...postData,
+        ...post,
         updatedDate: new Date()
       }
-      axios.post('https://nuxt-blog-c63d2.firebaseio.com/posts.json', createdPost)
-				.then(result => {
-          vuexContext.commit('addPost', { ...createdPost })
-          this.$router.push('/admin')
+      return axios.post('https://nuxt-blog-c63d2.firebaseio.com/posts.json', createdPost)
+				.then((res) => {
+          vuexContext.commit('addPost', { ...createdPost, id: res.data.name })
 				})
 				.catch(e => console.log(e))
     },
