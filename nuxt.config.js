@@ -29,6 +29,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/core-components.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -54,5 +55,9 @@ export default {
   },
   env: {
     baseUrl: process.env.BASE_URL || 'https://nuxt-blog-c63d2.firebaseio.com/'
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
