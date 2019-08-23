@@ -1,6 +1,6 @@
 const express = require('express')
 
-const router = express.Router();
+const router = express.Router()
 
 const app = express()
 router.use((req, res, next) => {
@@ -12,11 +12,11 @@ router.use((req, res, next) => {
 })
 
 router.post('/track-data', (req, res) => {
-	console.log('Stored data!', req.body.data)
-	res.status(200).json({ message: "Success!" });
-});
+  console.log('Stored data!', req.body.data)
+  res.status(200).json({ message: 'Success!' })
+})
 
 module.exports = {
-	path: '/api',
-	handler: Router
+  path: '/api',
+  handler: router
 }
