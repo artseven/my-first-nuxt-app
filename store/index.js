@@ -103,9 +103,12 @@ const createStore = () => {
 
           token = jwtCookie.split('=')[1];
           expirationDate = req.headers.cookie.split(';').find(c => c.trim().startsWith('expirationDate=').split('=')[1])
-        } else {
+        } else if (process.client) {
           token = localStorage.getItem('token')
           expirationDate = localStorage.getItem('tokenExpiration')
+        } else {
+          token = null;
+          expirationDate = null;
         }
           
         if (new Date().getTime() > +expirationDate || !token) {
